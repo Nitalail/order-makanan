@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #F0E68C;
+}
+
+
+
+.navbar-toggler {
+    display: none;
+}
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: 	#8B4513;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.btn-group .btn {
+    background-color:transparent; 
+    border: none; 
+    margin-right: 10px;
+    position: relative; 
+    transition: color 0.3s ease, background-color 0.3s ease; 
+    color: #ffffff; 
+}
+
+.btn-group .btn::after {
+    content: ''; 
+    position: absolute; 
+    left: 0;
+    bottom: -2px; 
+    width: 100%; 
+    height: 2px; 
+    background-color: transparent; 
+    transition: background-color 0.3s ease; 
+    z-index: -1; 
+}
+
+.btn-group .btn:hover::after,.btn-group .btn:focus::after {
+    background-color: #745b0c;  
+}
+
+.btn-group .btn:hover {
+    color: #ffffff; 
+    background-color: #a18040; 
+}
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 10px; /* Menambahkan margin bawah lebih kecil pada layar kecil */
+    }
+}
+
+.card {
+    /* width: calc(33.33% - 20px);  */
+    margin-right: 100px;
+    margin-bottom: 50px;
+    width: 200px; /* Duplikat properti width */
+    height: 300px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    background-color: #8B4513;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgb(122, 95, 5);
+}
+
+.card img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-actions {
+    position: absolute; /* Atur posisi absolut untuk tombol */
+    bottom: 0; /* Tempatkan di bagian bawah card */
+    left: 50%; /* Posisi horizontal di tengah */
+    width: 100%; /* Lebar penuh */
+    background-color: #F0E68C; /* Warna latar belakang semi-transparan */
+    padding: 10px; /* Padding untuk memisahkan tombol dari tepi card */
+    box-sizing: border-box; /* Penyesuaian kotak */
+    opacity: 0; /* Sembunyikan elemen saat tidak di-hover */
+    transition: opacity 0.3s ease; /* Efek transisi */
+    display: flex;
+    justify-content: space-between;
+}
+
+.card:hover .product-actions {
+    opacity: 1; /* Tampilkan elemen saat di-hover */
+}
+
+/* Hapus transformasi translateY saat tidak di-hover */
+.card .product-actions {
+    transform: translateY(0);
+}
+
+
+.product-actions button {
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-actions button:hover {
+    transform: scale(1.1);
+    background-color:#CD853F;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Atur jarak antar kartu */
+}
+
+
+ .btn-buy:hover {
+    background-color: #9b8d57;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+/* CSS untuk mengatur tata letak konten utama dan konten keranjang */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+}
+
+.cart-sidebar {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.cart-sidebar.active {
+    width: 50%; /* Atur lebar sesuai kebutuhan */
+}
+
+
+.cart-sidebar.active + .main {
+    transform: translateX(50%); /* Menggeser konten utama ke samping */
+}
+
+/* Ganti warna latar belakang modal */
+.modal-content {
+    background-color:#F0E68C; /* Misalnya, ganti dengan warna abu-abu muda */
+}
+
+/* Ganti warna teks judul modal */
+.modal-title {
+    color: #8B4513; /* Misalnya, ganti dengan warna teks abu-abu gelap */
+}
+
+
